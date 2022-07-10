@@ -148,7 +148,12 @@ pub mod dkubiszewski {
                     next: RefCell::new(self.head.borrow().clone()),
                 });
 
-                if let ListNode::Link { value, prev, next } = self.head.get_mut().as_ref() {
+                if let ListNode::Link {
+                    value: _,
+                    prev,
+                    next: _,
+                } = self.head.get_mut().as_ref()
+                {
                     prev.replace(new_node.clone());
                 }
                 self.head.replace(new_node.clone());
